@@ -1,14 +1,19 @@
 import matplotlib.pyplot as plt
-import numpy as np
 
 
-def plot(X, Y, W, b, title):
-    scatter(X.T.tolist(), Y.tolist(), title)
-    line(W, b)
-    show()
+def plot(X, Y, Xp, Pp, title):
+    """
+    Plots the data and decision boundary.
+    """
+    scatter(Xp.T.tolist(), Pp.T.tolist(), '#FDE8D2', '#D0E9E9', title)
+    scatter(X.T.tolist(), Y.tolist(), '#ff9933', '#00e6e6', title)
+    plt.show()
 
 
-def scatter(X, Y, title):
+def scatter(X, Y, color1, color2, title):
+    """
+    Scatters the points from X and Y on the plot.
+    """
     x_orange = []
     y_orange = []
     x_blue = []
@@ -22,27 +27,21 @@ def scatter(X, Y, title):
             y_blue.append(x[1])
 
     axes = plt.gca()
-    axes.set_xlim([0, 1])
-    axes.set_ylim([0, 1])
-
-    plt.scatter(x_orange, y_orange, c='#ff9933', s=1)
-    plt.scatter(x_blue, y_blue, c='#00e6e6', s=1)
+    axes.set_xlim([-1, 1])
+    axes.set_ylim([-1, 1])
+    plt.scatter(x_orange, y_orange, c=color1, s=15)
+    plt.scatter(x_blue, y_blue, c=color2, s=15)
     plt.xlabel('x')
     plt.ylabel('y')
     plt.title(title)
 
 
-def line(W, b):
-    x = np.linspace(0, 1, 1000)
-    plt.plot(x, -(W[0] * x + b) / W[1])
-
-
-def show():
-    plt.show()
-
-
 def graph(losses):
+    """
+    Plots the graph of the loss function.
+    """
     axes = plt.gca()
-    axes.set_xlim([0, 1000])
+    axes.set_xlim([0, 20000])
     axes.set_ylim([0, 1])
     plt.plot(losses, c='r')
+    plt.show()

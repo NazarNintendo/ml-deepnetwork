@@ -1,7 +1,7 @@
-from neural import Perceptron
+from neural import DeepNetwork
 
-perceptron = Perceptron(filepath='data/data.txt')
-perceptron.describe_me()
 
-# perceptron.predict(filepath='predict.txt')
+deep_network = DeepNetwork(size=100)
+deep_network.train()
+deep_network.predict_from_file('data/predict.txt')
 

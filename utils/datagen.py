@@ -12,7 +12,6 @@ def generate_random_data(size) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.n
     :type size: int
     :return: the numpy arrays of x and y_hat
     """
-
     with open('data/data.txt', 'w') as f:
         data = [Element() for _ in range(size)]
         for element in data:
@@ -30,7 +29,6 @@ def read_from_file(path) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray
     :type path: str
     :return: the numpy arrays of x and y_hat
     """
-
     data = []
 
     try:
@@ -53,7 +51,6 @@ def split_data(data) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     :type data: list[Element]
     :return: training and testing sets for X and Y_hat
     """
-
     random.shuffle(data)
 
     x = [(float(element.x), float(element.y)) for element in data]
@@ -73,7 +70,6 @@ def read_for_prediction(path) -> np.ndarray:
     :type path: str
     :return: the numpy array of x
     """
-
     data = []
 
     try:
